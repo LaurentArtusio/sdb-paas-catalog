@@ -1,0 +1,6 @@
+.catalog:
+  name: "Neo4j"
+  version: "latest"
+  description: "Graph oriented database" 
+
+neo:
