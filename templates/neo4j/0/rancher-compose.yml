@@ -2,5 +2,11 @@
   name: "Neo4j"
   version: "latest"
   description: "Graph oriented database" 
-
+  questions:
+    - variable: tcp_port
+      description: "TCP port on host"
+      label: "TCP port"
+      type: int
+      required: true
+      default: "7474"
 neo:
