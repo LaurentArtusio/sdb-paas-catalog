@@ -1,0 +1,5 @@
+.catalog:
+  name: "Elasticsearch"
+  version: "5.6.3"
+  description: "Search engine" 
+neo:
