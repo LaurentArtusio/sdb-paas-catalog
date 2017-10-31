@@ -4,9 +4,10 @@ services:
     image: docker.elastic.co/kibana/kibana:5.6.3
     container_name: kibana
     environment:
-      - SERVER_HOST==0.0.0.0
+      - SERVER_HOST=0.0.0.0
       - SERVER_NAME=KIBANA
       - XPACK_SECURITY_ENABLED=false
+      - XPACK_MONITORING_ENABLED=false
       - ELASTICSEARCH_URL=${elasticsearch_url}
     ports:
       - 5601:5601
