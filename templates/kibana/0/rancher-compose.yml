@@ -1,0 +1,11 @@
+.catalog:
+  name: "Kibana"
+  version: "5.6.3"
+  description: "Dataviz tool for Elasticsearch" 
+  questions:
+    - variable: elasticsearch_url
+      description: "Elasticsearch URL"
+      label: "URL"
+      type: string
+      required: true
+kibana:
