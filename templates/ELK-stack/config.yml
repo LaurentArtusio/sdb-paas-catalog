@@ -1,0 +1,5 @@
+name: ELK Stack
+description: |
+  Full ELK stack for easy data analysis
+version: 5.6.3
+category: database
