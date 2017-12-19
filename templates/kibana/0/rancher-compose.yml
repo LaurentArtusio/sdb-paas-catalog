@@ -5,7 +5,7 @@
   questions:
     - variable: elasticsearch_url
       description: "Elasticsearch URL"
-      label: "URL"
+      label: "Elasticsearch URL"
       type: string
       required: true
 kibana:
