@@ -8,6 +8,6 @@ services:
       - SERVER_NAME=KIBANA
       - XPACK_SECURITY_ENABLED=false
       - XPACK_MONITORING_ENABLED=false
-      - ELASTICSEARCH_URL=http://84.39.52.61:9200
+      - ELASTICSEARCH_URL=http://10.254.254.254:9200
     ports:
       - 5601:5601
