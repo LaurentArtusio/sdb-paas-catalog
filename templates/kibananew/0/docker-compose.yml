@@ -4,3 +4,5 @@ kibana5:
   image: kibana:5.3.0
   environment:
     ELASTICSEARCH_URL: "${elasticsearch_source}"
+  ports:
+   - "5601:5601"
