@@ -1,10 +1,11 @@
-.catalog:
+catalog:
   name: "Kibanew"
-  version: "5.6.3"
-  description: "Dataviz tool for Elasticsearch" 
+  version: "5.3.0"
+  description: "Kibana: Explore & Visualize Your Data"
   questions:
-    - variable: elasticsearch_url
-      description: "Elasticsearch URL"
-      label: "Elasticsearch URL"
-      type: string
+    - variable: "elasticsearch_source"
+      description: "Link to elasticsearch service or stack/service"
+      label: "Elasticsearch source"
+      type: "service"
       required: true
+      default: "es/elasticsearch-clients"
