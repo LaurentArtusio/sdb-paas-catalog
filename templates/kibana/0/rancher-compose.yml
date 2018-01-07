@@ -8,4 +8,8 @@
       label: "Elasticsearch URL"
       type: string
       required: true
-kibana:
+    - variable: server_host
+      description: "Server host"
+      label: "Server host"
+      type: string
+      required: true
