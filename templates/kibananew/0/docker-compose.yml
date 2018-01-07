@@ -1,0 +1,11 @@
+version: '2'
+services:
+  kibana:
+    image: kibana:5.3.0
+    container_name: kibanew
+    environment:
+      - XPACK_SECURITY_ENABLED=false
+      - XPACK_MONITORING_ENABLED=false
+      - ELASTICSEARCH_URL=${elasticsearch_url}
+    ports:
+      - 5601:5601

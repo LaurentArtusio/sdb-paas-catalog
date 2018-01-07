@@ -1,0 +1,10 @@
+.catalog:
+  name: "Kibanew"
+  version: "5.6.3"
+  description: "Dataviz tool for Elasticsearch" 
+  questions:
+    - variable: elasticsearch_url
+      description: "Elasticsearch URL"
+      label: "Elasticsearch URL"
+      type: string
+      required: true
