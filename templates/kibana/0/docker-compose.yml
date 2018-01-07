@@ -1,7 +1,7 @@
 version: '2'
 services:
   kibana:
-    image: docker.elastic.co/kibana/kibana:5.3.0
+    image: kibana:5.3.0
     container_name: kibana
     environment:
       - XPACK_SECURITY_ENABLED=false
