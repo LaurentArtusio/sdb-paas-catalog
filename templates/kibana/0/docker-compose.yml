@@ -7,7 +7,7 @@ services:
     tty: true
     image: rancher/load-balancer-service
     links:
-    - nginx-proxy:kibana5
+    - nginx-proxy
     stdin_open: true
   nginx-proxy-conf:
     image: rancher/nginx-conf:v0.2.0
