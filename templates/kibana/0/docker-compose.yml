@@ -2,7 +2,7 @@ version: '2'
 services:
   kibana-vip:
     ports:
-    - "${public_port}:80"
+     - "${public_port}:80"
     restart: always
     tty: true
     image: rancher/load-balancer-service
@@ -27,7 +27,7 @@ services:
     restart: always
     tty: true
     image: kibana:5.3.0
-    net: "container:nginx-proxy"
+    network_mode: "container:nginx-proxy"
     stdin_open: true
     environment:
       ELASTICSEARCH_URL: "http://elasticsearch:9200"
