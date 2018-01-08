@@ -36,6 +36,8 @@ services:
       - esdata2:/usr/share/elasticsearch/data
     networks:
       - esnet
+    links:
+      - elasticsearch1
   kibana-vip:
     ports:
       - "${public_port}:80"
@@ -44,24 +46,16 @@ services:
     image: rancher/load-balancer-service
     links:
       - nginx-proxy
-      - elasticsearch1
-      - elasticsearch2
     stdin_open: true
   nginx-proxy-conf:
     image: rancher/nginx-conf:v0.2.0
     command: "-backend=rancher --prefix=/2015-07-25"
-    links:
-      - elasticsearch1
-      - elasticsearch2
   nginx-proxy:
     image: rancher/nginx:v1.9.4-3
     volumes_from:
       - nginx-proxy-conf
     labels:
       io.rancher.sidekicks: nginx-proxy-conf,kibana5
-    links:
-      - elasticsearch1
-      - elasticsearch2
   kibana5:
     restart: always
     tty: true
@@ -70,9 +64,6 @@ services:
     stdin_open: true
     environment:
       ELASTICSEARCH_URL: "http://elasticsearch1:9200"
-    links:
-      - elasticsearch1
-      - elasticsearch2
 
 volumes:
   esdata1:
