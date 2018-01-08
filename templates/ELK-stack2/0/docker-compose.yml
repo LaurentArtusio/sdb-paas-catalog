@@ -1,5 +1,6 @@
 version: '2'
 services:
+
   elasticsearch1:
     image: docker.elastic.co/elasticsearch/elasticsearch:5.6.3
     container_name: elasticsearch1
@@ -17,6 +18,25 @@ services:
       - esdata1:/usr/share/elasticsearch/data
     ports:
       - 9200:9200
+
+  elasticsearch2:
+    image: docker.elastic.co/elasticsearch/elasticsearch:5.6.3
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "discovery.zen.ping.unicast.hosts=elasticsearch1"
+      - xpack.security.enabled=false
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    mem_limit: 1000000000
+    volumes:
+      - esdata2:/usr/share/elasticsearch/data
+    links:
+      - elasticsearch1
+
   kibana-vip:
     ports:
      - "${public_port}:80"
@@ -26,9 +46,11 @@ services:
     links:
     - nginx-proxy
     stdin_open: true
+
   nginx-proxy-conf:
     image: rancher/nginx-conf:v0.2.0
     command: "-backend=rancher --prefix=/2015-07-25"
+
   nginx-proxy:
     image: rancher/nginx:v1.9.4-3
     volumes_from:
