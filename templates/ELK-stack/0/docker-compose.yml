@@ -63,7 +63,7 @@ services:
     networks:
       - esnet
     external_links:
-      - ${elasticsearch_source}:elasticsearch
+      - elasticsearch1:elasticsearch
   kibana5:
     restart: always
     tty: true
@@ -71,7 +71,7 @@ services:
     network_mode: "container:nginx-proxy"
     stdin_open: true
     environment:
-      ELASTICSEARCH_URL: "http://elasticsearch1:9200"
+      ELASTICSEARCH_URL: "http://elasticsearch:9200"
     networks:
       - esnet
 
