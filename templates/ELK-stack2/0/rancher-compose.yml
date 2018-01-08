@@ -9,7 +9,7 @@
       type: "int"
       default: 80
       required: true
-l
+
 nginx-proxy:
   metadata:
     nginx:
