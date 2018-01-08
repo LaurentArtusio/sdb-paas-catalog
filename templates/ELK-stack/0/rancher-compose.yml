@@ -13,13 +13,13 @@
       label: "Elastic node 1 will be deployed on the host with this label"
       description: "Elastic node 1 will be deployed on the host with this label"
       type: "string"
-      default: "node1"
+      default: "hostlabel=node1"
       required: true
     - variable: "elastic-node-2-label"
       label: "Elastic node 2 will be deployed on the host with this label"
       description: "Elastic node 2 will be deployed on the host with this label"
       type: "istring"
-      default: "node2" 
+      default: "hostlabel=node2" 
       required: true
 
 nginx-proxy:
