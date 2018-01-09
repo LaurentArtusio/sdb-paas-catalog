@@ -1,5 +1,4 @@
 name: Elasticsearch
-description: |
-  Search engine
+description: Search engine
 version: 5.6.3
 category: database
