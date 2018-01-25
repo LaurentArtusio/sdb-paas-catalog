@@ -4,6 +4,8 @@ services:
   nginx-proxy-conf:
     image: rancher/nginx-conf:v0.2.0
     command: "-backend=rancher --prefix=/2015-07-25"
+    labels:
+      io.rancher.scheduler.affinity:host_label: hostlabel=head
 
   elasticsearch1:
     image: docker.elastic.co/elasticsearch/elasticsearch:5.6.3
@@ -55,6 +57,8 @@ services:
       ELASTICSEARCH_URL: "http://elasticsearch1:9200"
     links:
       - elasticsearch1
+    labels:
+      io.rancher.scheduler.affinity:host_label: hostlabel=head
 
   nginx-proxy:
     image: rancher/nginx:v1.9.4-3
@@ -64,6 +68,8 @@ services:
       io.rancher.sidekicks: nginx-proxy-conf,kibana5
     links:
       - kibana5
+    labels:
+      io.rancher.scheduler.affinity:host_label: hostlabel=head
 
   kibana-vip:
     ports:
@@ -74,6 +80,8 @@ services:
     links:
       - nginx-proxy
     stdin_open: true
+    labels:
+      io.rancher.scheduler.affinity:host_label: hostlabel=head
 
 volumes:
   esdata1:
